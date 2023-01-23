@@ -83,7 +83,7 @@ rota.get("/api/topicos-de-hoje", function(req, res) {
 rota.get("/api/topicos-relacionados", function(req, res) {
     if (req.query.topicosrelacionados != null && req.query.topicosrelacionados !== "") {
         opcoes.keyword = req.query.topicosrelacionados
-        googleTrends.reçatedTopics(opcoes).then(function(resposta) {
+        googleTrends.relatedTopics(opcoes).then(function(resposta) {
             res.json({mensagem: JSON.parse(resposta)})
         }).catch(function(erro) {
             res.json({mensagem: erro})   
