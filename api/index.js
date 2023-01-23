@@ -21,10 +21,10 @@ var opcoes = {
 }
 
 rota.get('/api/', function(req, res) {
-  res.json({mensagem: "A API está funcionando, use exemplolink.com/api/interesse?interesse=Seu_Interesse para pesquisar interesses!"})
+  res.json({mensagem: "A API está funcionando, use exemplolink.com/api/1?interesse=Seu_Interesse para pesquisar interesses!"})
 })
 
-rota.get("/api/interesse", function(req, res) {
+rota.get("/api/1", function(req, res) {
     if (req.query.interesse != null && req.query.interesse !== "") {
         opcoes.keyword = req.query.interesse
         googleTrends.interestOverTime(opcoes).then(function(resposta) {
@@ -33,12 +33,12 @@ rota.get("/api/interesse", function(req, res) {
             res.json({mensagem: erro})   
         })
     } else {
-        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/interesse?interesse=Seu_Interesse"})   
+        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/1?interesse=Seu_Interesse"})   
     }
 })
 
 
-rota.get("/api/complecao", function(req, res) {
+rota.get("/api/2", function(req, res) {
     if (req.query.complecao != null && req.query.complecao !== "") {
         opcoes.keyword = req.query.complecao
         googleTrends.autoComplete(opcoes).then(function(resposta) {
@@ -47,12 +47,12 @@ rota.get("/api/complecao", function(req, res) {
             res.json({mensagem: erro})   
         })
     } else {
-        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/complecao?complecao=Termo_para_ser_auto_completado"})   
+        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/2?complecao=Termo_para_ser_auto_completado"})   
     }
 })
 
 
-rota.get("/api/busca-relacionada", function(req, res) {
+rota.get("/api/3", function(req, res) {
     if (req.query.buscarelacionada != null && req.query.buscarelacionada !== "") {
         opcoes.keyword = req.query.buscarelacionada
         googleTrends.relatedQueries(opcoes).then(function(resposta) {
@@ -61,12 +61,12 @@ rota.get("/api/busca-relacionada", function(req, res) {
             res.json({mensagem: erro})   
         })
     } else {
-        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/busca-relacionada?buscarelacionada=Busca_relacionada_que_você_queira"})   
+        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/3?buscarelacionada=Busca_relacionada_que_você_queira"})   
     }
 })
 
 
-rota.get("/api/topicos-de-hoje", function(req, res) {
+rota.get("/api/4", function(req, res) {
     if (req.query.topicosdehoje != null && req.query.topicosdehoje !== "") {
         opcoes.keyword = req.query.topicosdehoje
         googleTrends.dailyTrends(opcoes).then(function(resposta) {
@@ -75,12 +75,12 @@ rota.get("/api/topicos-de-hoje", function(req, res) {
             res.json({mensagem: erro})   
         })
     } else {
-        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/topicos-de-hoje?topicosdehoje=Termo_para_ser_buscado"})   
+        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/4?topicosdehoje=Termo_para_ser_buscado"})   
     }
 })
 
 
-rota.get("/api/topicos-relacionados", function(req, res) {
+rota.get("/api/5", function(req, res) {
     if (req.query.topicosrelacionados != null && req.query.topicosrelacionados !== "") {
         opcoes.keyword = req.query.topicosrelacionados
         googleTrends.relatedTopics(opcoes).then(function(resposta) {
@@ -89,12 +89,12 @@ rota.get("/api/topicos-relacionados", function(req, res) {
             res.json({mensagem: erro})   
         })
     } else {
-        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/topicos-relacionado?topicosrelacionado=Tópico_para_ser_buscado"})   
+        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/5?topicosrelacionado=Tópico_para_ser_buscado"})   
     }
 })
 
 
-rota.get("/api/gerar-nome-de-animal", function(req, res) {
+rota.get("/api/6", function(req, res) {
     if (req.query.animal != null && req.query.animal !== "") {   
         generate.generate(req, res).then(function(resposta) {
             return resposta     
@@ -102,12 +102,12 @@ rota.get("/api/gerar-nome-de-animal", function(req, res) {
        // return;
       
     } else {
-        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/gerar-nome-de-animal?animal=Cavalo"})   
+        res.json({mensagem: "É preciso enviar um termo de busca. Exemplo: exemplolink.com/api/6?animal=Cavalo"})   
     }
 })
 
 
-rota.get("/api/gerar-titulo-e-texto-baseado-no-principal-assunto-do-google-trends", function(req, res) {
+rota.get("/api/7", function(req, res) {
     googleTrends.realTimeTrends(opcoes).then(function(resposta) {
         let primeiroTopico = JSON.parse(resposta)["storySummaries"]["trendingStories"][0]
         let texto =""
