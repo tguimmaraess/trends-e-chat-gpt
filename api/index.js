@@ -55,7 +55,7 @@ rota.get("/api/complecao", function(req, res) {
 rota.get("/api/busca-relacionada", function(req, res) {
     if (req.query.buscarelacionada != null && req.query.buscarelacionada !== "") {
         opcoes.keyword = req.query.buscarelacionada
-        googleTrends.autoComplete(opcoes).then(function(resposta) {
+        googleTrends.relatedQueries(opcoes).then(function(resposta) {
             res.json({mensagem: JSON.parse(resposta)})
         }).catch(function(erro) {
             res.json({mensagem: erro})   
@@ -69,7 +69,7 @@ rota.get("/api/busca-relacionada", function(req, res) {
 rota.get("/api/topicos-de-hoje", function(req, res) {
     if (req.query.topicosdehoje != null && req.query.topicosdehoje !== "") {
         opcoes.keyword = req.query.topicosdehoje
-        googleTrends.autoComplete(opcoes).then(function(resposta) {
+        googleTrends.dailyTrends(opcoes).then(function(resposta) {
             res.json({mensagem: JSON.parse(resposta)})
         }).catch(function(erro) {
             res.json({mensagem: erro})   
@@ -83,7 +83,7 @@ rota.get("/api/topicos-de-hoje", function(req, res) {
 rota.get("/api/topicos-relacionados", function(req, res) {
     if (req.query.topicosrelacionados != null && req.query.topicosrelacionados !== "") {
         opcoes.keyword = req.query.topicosrelacionados
-        googleTrends.autoComplete(opcoes).then(function(resposta) {
+        googleTrends.reçatedTopics(opcoes).then(function(resposta) {
             res.json({mensagem: JSON.parse(resposta)})
         }).catch(function(erro) {
             res.json({mensagem: erro})   
