@@ -110,7 +110,7 @@ function generatePrompt(animal) {
 
 
 function gerarPrompt2(texto) {
-   return "Criar um título e um texto com " + texto +". Traduzir para português";
+   return "Criar um título com " + texto +". Traduzir para português";
 }
 
 
