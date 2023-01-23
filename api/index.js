@@ -21,7 +21,7 @@ var opcoes = {
 }
 
 rota.get('/api/', function(req, res) {
-  res.json({mensagem: "A API está funcionando, use exemplolink.com/api/interesse?interesse=Seu_Interesse para começar!"})
+  res.json({mensagem: "A API está funcionando, use exemplolink.com/api/interesse?interesse=Seu_Interesse para pesquisar interesses!"})
 })
 
 rota.get("/api/interesse", function(req, res) {
