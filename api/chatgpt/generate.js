@@ -54,7 +54,7 @@ async function generate(req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Sugerir 3 nomes para animais que são super heróis.  Traduzir para portguês`;
+  return "Sugerir 3 nomes para " + animal +"  que são super heróis.  Traduzir para portguês";
 }
 
 module.exports = generate
