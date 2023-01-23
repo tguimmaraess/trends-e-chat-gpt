@@ -83,8 +83,8 @@ async function generate2(req, res, textoTopico) {
       temperature: 0.6,
       max_tokens: 1000
     });
-    console.log(completion.data.choices[0].text);
-    res.status(200).json({ resultado: completion.data.choices[0].text });
+  
+    res.status(200).json({ resultado: completion.data.choices[0].text, topico: texto });
 } catch(erro) {
     // Consider adjusting the error handling logic for your use case
     if (erro.response) {
