@@ -117,7 +117,7 @@ rota.get("/api/7", function(req, res) {
                     const element = primeiroTopico[key][0];
                     let texto = element.articleTitle
                     generate.generate2(req, res, texto).then(function(resposta) {
-                        return JSON.parse(resposta);
+                        return resposta;
                     })
                 }
                 
