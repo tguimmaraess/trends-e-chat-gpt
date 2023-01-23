@@ -96,7 +96,7 @@ rota.get("/api/topicos-relacionados", function(req, res) {
 
 rota.get("/api/gerar-nome-de-animal", function(req, res) {
     if (req.query.animal != null && req.query.animal !== "") {   
-        generate(req, res).then(function(resposta) {
+        generate.generate(req, res).then(function(resposta) {
             return resposta     
         })
        // return;
