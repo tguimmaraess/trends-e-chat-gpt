@@ -6,7 +6,7 @@ var app = express();
 app.use(bodyParser.json())
 
 const configuration = new  configuracao.Configuration({
-    apiKey: "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",
+    apiKey: "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",
 });
 const openai = new  configuracao.OpenAIApi(configuration);
 
