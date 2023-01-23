@@ -34,7 +34,7 @@ async function generate(req, res) {
       prompt: generatePrompt(animal),
       temperature: 0.6,
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
+    res.status(200).json({ resultado: completion.data.choices[0].text });
 } catch(erro) {
     // Consider adjusting the error handling logic for your use case
     if (erro.response) {
@@ -44,7 +44,7 @@ async function generate(req, res) {
       console.error(`Erro ao linkar com a OpenAI: ${erro.message}`);
       res.status(500).json({
         error: {
-          message: 'Ocorreu um erro durante o pedido.',
+          mensagem: 'Ocorreu um erro durante o pedido.',
         }
       });
     }
